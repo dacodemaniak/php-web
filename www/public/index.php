@@ -9,7 +9,12 @@
 */
 require_once('./../vendor/autoload.php');
 
+use Aelion\Http\Request\Request;
+
 ini_set('display_errors', 1);
 error_reporting(E_ALL^E_NOTICE);
 
-echo 'Hello PHP';
+$request = new Request();
+// Via setter magic...
+$request->uri = $_SERVER['REQUEST_URI'];
+echo $request->uri;
