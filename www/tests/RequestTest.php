@@ -20,14 +20,14 @@ final class RequestTest extends TestCase {
         $this->assertInstanceOf(Request::class, $request, '$request is a Request instance');
     }
 
-    public function testAsUriContent(): void {
+    public function testHasUriContent(): void {
         /**
          * @server REQUEST_URI='/'
          */
         $_SERVER['REQUEST_URI'] = '/';
-        
+
         $request = new Request();
-        $this->assertEquals('/', $request->request_uri, 'Hydate URI content');
+        $this->assertEquals('/', $request->uri, 'Hydate URI content');
     }
 
     public function testCanAddAProperty(): void {

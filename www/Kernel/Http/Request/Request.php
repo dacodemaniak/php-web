@@ -46,7 +46,7 @@ final class Request {
 
     private function _hydrate(): void {
         foreach($_SERVER as $key => $value) {
-            $this->{strtolower($key)} = $value;
+            $this->{strtolower(substr($key, strpos($key, '_') + 1))} = $value;
         }
     }
 }
