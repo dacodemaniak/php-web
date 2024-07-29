@@ -4,3 +4,6 @@
 # Exclude datas content but .gitkeep
 datas
 !datas/.gitkeep
+
+# Exlude apache logs
+logs

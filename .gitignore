@@ -1,0 +1,5 @@
+# Ignore vendor folder
+www/vendor
+
+# Ignore docker log files
+.docker/logs
