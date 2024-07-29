@@ -1,0 +1,34 @@
+{
+	"name" : "aelion/web",
+	"description" : "PHP for web",
+	"version" : "1.0.0",
+	"type" : "project",
+	"homepage" : "http://127.0.0.1:8080",
+	"keywords" : [
+		"Aélion",
+        "Dev Cyber",
+		"PHP web"
+	],
+	"require" : {
+		"php" : "^8.2",
+		"altorouter/altorouter" : "^2.0",
+		"vlucas/phpdotenv" : "^5.1",
+        "twig/twig": "^3.0"
+	},
+	"license" : "ISC",
+	"authors" : [{
+			"name" : "Jean-Luc Aubert",
+			"email" : "jean-luc.aubert@aelion.fr"
+		}
+	],
+	"autoload" : {
+		"psr-4" : {
+			"Aelion\\" : "Kernel",
+			"Api\\" : "src"
+		}
+	},
+	"minimum-stability" : "beta",
+	"require-dev" : {
+		"phpunit/phpunit" : "^9"
+	}
+}

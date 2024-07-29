@@ -1,0 +1,28 @@
+services: 
+    db: 
+        image: mariadb:latest
+        container_name: www_mariadb
+        restart: unless-stopped
+        env_file: .env
+        volumes: 
+            - ./datas:/var/lib/mysql
+            - ./init.db/init.sql:/docker-entrypoint-initdb.d/init.sql
+        networks:
+            - cyber
+    www: 
+        image: webdevops/php-apache:8.2
+        container_name: php-web
+        depends_on: 
+            - db
+        volumes: 
+            - ./../www:/var/www/vhosts/www/htdocs
+            - ./etc/apache2/www/sites-enabled:/etc/apache2/sites-enabled
+            - ./logs:/var/log/apache2
+        ports: 
+            - 8080:80
+        networks: 
+            - cyber
+networks: 
+    cyber: 
+        driver: bridge
+        external: false
